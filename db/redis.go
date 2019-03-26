@@ -5,22 +5,20 @@ import (
 	"fmt"
 )
 
-
-var client *redis.Client
-var address = ""
-var Password = ""
+var Client *redis.Client
+var address = "132.121.204.69:7541"
+var password = "Redis135"
 var db = 0
 
 func init() {
 
 	opt := &redis.Options{
 		Addr:address,
-		Password:Password,
+		Password:password,
 		DB:db,
 	}
-
-	client = redis.NewClient(opt)
-	pong,err := client.Ping().Result()
+	Client = redis.NewClient(opt)
+	pong,err := Client.Ping().Result()
 	if err != nil {
 		panic(fmt.Sprintf("connect to redis error:%v\n",err))
 	}
@@ -29,5 +27,5 @@ func init() {
 }
 
 func Close() {
-	client.Close()
+	Client.Close()
 }
