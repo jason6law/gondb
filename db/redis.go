@@ -6,8 +6,8 @@ import (
 )
 
 var Client *redis.Client
-var address = "132.121.204.69:7541"
-var password = "Redis135"
+var address = ""
+var password = ""
 var db = 0
 
 func init() {
